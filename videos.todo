@@ -1,0 +1,19 @@
+list yang sudah di tonton:
+    ✔ vid 1 @done(22-01-02 18:21)
+    ✔ vid 2 @done(22-01-02 18:21)
+    ✔ vid 3 @done(22-01-02 18:22)
+    ✔ vid 4 @done(22-01-02 21:45)
+    ☐ vid 5
+    ☐ vid 6
+    ☐ vid 7
+
+package:
+    ☐ vuejs datepicker https://github.com/charliekassel/vuejs-datepicker
+    ☐ vuex
+    ☐ axios
+    ☐ json server
+
+problem:
+    if found like this
+    [vue-loader] vue-template-compiler must be installed as a peer dependency, or a compatible compiler implementation must be passed via options
+    npm i --dev vue-template-compiler
