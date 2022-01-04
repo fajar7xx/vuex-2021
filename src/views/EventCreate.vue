@@ -73,7 +73,9 @@ export default {
   methods: {
     createEvent() {
       this.$store
-        .dispatch('createEvent', this.event)
+        // .dispatch('createEvent', this.event)
+        // ganti karena menggunakan namespaced
+        .dispatch('event/createEvent', this.event)
         .then(() => {
           // redirect to route
           this.$router.push({
@@ -84,11 +86,13 @@ export default {
           this.event = this.createFreshEventObject
         })
         .catch(() => {
-          console.log('there was a problem creating your event')
+          console.log('there was a problem creating your event') //kalau redirect coman di comment out
         })
     },
     createFreshEventObject() {
-      const user = this.$store.state.user
+      // const user = this.$store.state.user
+      // karena menggunakan modules maka menjadi seperti ini
+      const user = this.$store.state.user.user
       const id = Math.floor(Math.random() * 10000000)
 
       return {

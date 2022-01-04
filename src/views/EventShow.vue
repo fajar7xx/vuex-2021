@@ -26,7 +26,7 @@
 </template>
 <script>
 // import EventService from '@/services/EventService.js'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   props: ['id'],
@@ -43,9 +43,20 @@ export default {
     //   .catch(error => {
     //     console.log('There was an error:', error.response)
     //   })
-    this.$store.dispatch('fetchEvent', this.id)
+    // this.$store.dispatch('event/fetchEvent', this.id)
+    // diganti karena memakai mapActions
+    this.fetchEvent(this.id)
   },
-  computed: mapState(['event'])
+  // computed: mapState(['event'])
+  // ubah ke objek dari pada ubah sesuai modulesnya
+  computed: mapState({
+    event: state => state.event.event //cara ini dilakukan untuk memanggil state pada module
+  }),
+  // methods: mapActions(['event/fetchEvent'])
+  //alternatifnya 
+  // param 1 => namespace
+  // param 2 => actions to map
+  methods: mapActions('event', ['fetchEvent'])
 }
 </script>
 <style scoped>
